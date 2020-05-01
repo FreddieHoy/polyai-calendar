@@ -13,22 +13,18 @@ const Months = [
   'December'
 ];
 
-export const getYear = () => +new Date().getFullYear();
+export const getYear = (date) => +date.getFullYear();
 
-export const getMonth = () => {
-  const numberMonth = +new Date().getMonth();
+export const getMonth = (date) => {
+  const numberMonth = date.getMonth();
 
   return Months[numberMonth];
 };
 
-export const getDatesArray = () => {
-  const todaysDate = new Date();
-  const firstDayOfMonth = new Date(
-    todaysDate.getFullYear(),
-    todaysDate.getMonth(),
-    1
-  );
+export const getDatesArray = (date) => {
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const firstDayOfMonthWeekDayNumber = firstDayOfMonth.getDay() - 1;
+
   const numberofDaysInMonth = GetNumberOfDaysInMonth(firstDayOfMonth);
 
   const monthArray = CreateCountingArray(numberofDaysInMonth);
@@ -67,4 +63,13 @@ const CreateEmpty42Array = () => {
     a.push('');
   }
   return a;
+};
+
+export const getHighlightedDay = (date) => {
+  const thisMonth = getMonth(new Date());
+  const suggestedMonth = getMonth(date);
+
+  if (thisMonth === suggestedMonth) {
+    return new Date().getDate().toString();
+  } else return null;
 };

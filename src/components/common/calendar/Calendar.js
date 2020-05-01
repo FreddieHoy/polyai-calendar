@@ -1,28 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
-import WeekDays from './WeekDays';
-import Dates from './Dates';
-import MonthYear from './MonthYear';
-import { getYear, getMonth, getDatesArray } from './Helper';
+import DatePicker from './DatePicker';
 
-const Container = styled.div`
-  border: 1px solid black;
-  width: 352px;
-  text-align: center;
-`;
+const todaysDate = new Date();
 
-const Month = getMonth();
+// const tomorrow = new Date(todaysDate);
+// tomorrow.setDate(tomorrow.getDate() + 1);
 
-const Year = getYear();
-
-const DatesArray = getDatesArray();
+// let nextMonth = new Date(todaysDate.setMonth(todaysDate.getMonth() + 1));
 
 const Calendar = () => (
-  <Container>
-    <MonthYear month={Month} year={Year} />
-    <WeekDays />
-    <Dates array={DatesArray} />
-  </Container>
+  <div>
+    <DatePicker date={todaysDate} />
+  </div>
 );
 
 export default Calendar;

@@ -17,12 +17,31 @@ const DayContainer = styled.div`
   border: 1px solid black;
 `;
 
-const Dates = ({ array }) => (
+const DayContainerHighlighted = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  background-color: yellow;
+`;
+
+const Dates = ({ array, today }) => (
   <Container>
     {array.map((day) => (
-      <DayContainer key={day}>
-        <CalText>{day}</CalText>
-      </DayContainer>
+      <div>
+        {today !== day && (
+          <DayContainer key={day}>
+            <CalText>{day}</CalText>
+          </DayContainer>
+        )}
+        {today === day && (
+          <DayContainerHighlighted>
+            <CalText>{day}</CalText>
+          </DayContainerHighlighted>
+        )}
+      </div>
     ))}
   </Container>
 );
