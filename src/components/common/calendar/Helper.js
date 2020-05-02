@@ -39,7 +39,7 @@ const CreatemonthCountArray = (number) => {
   }
 
   return a;
-  // a is ['1', '2', '3'... to 'N'], Where N is the number of days in that month.
+  // a is ['1', '2', '3'... to 'number']
 };
 
 const CreateEmpty42Array = () => {
