@@ -22,7 +22,7 @@ export const getDatesArray = (date) => {
   return calendarArray;
 };
 
-const getNumDaysInThisMonth = (anyDateInMonth) => {
+export const getNumDaysInThisMonth = (anyDateInMonth) => {
   return new Date(
     anyDateInMonth.getFullYear(),
     anyDateInMonth.getMonth() + 1,
@@ -30,7 +30,7 @@ const getNumDaysInThisMonth = (anyDateInMonth) => {
   ).getDate();
 };
 
-const createMonthCountArray = (number) => {
+export const createMonthCountArray = (number) => {
   let a = [];
 
   for (let i = 1; i <= number; i++) {
@@ -42,7 +42,7 @@ const createMonthCountArray = (number) => {
   // a is ['1', '2', '3'... to 'number']
 };
 
-const createEmpty42Array = () => {
+export const createEmpty42Array = () => {
   let a = [];
 
   for (let i = 0; i < 42; i++) {
