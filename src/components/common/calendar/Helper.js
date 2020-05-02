@@ -54,11 +54,12 @@ const CreateEmpty42Array = () => {
 
 export const getHighlightedDay = (date) => {
   const thisMonth = getMonthName(new Date());
+  const targetMonth = getMonthName(date);
 
-  const suggestedMonth = getMonthName(date);
+  const thisYear = getYear(new Date());
+  const targetYear = getYear(date);
 
-  if (thisMonth === suggestedMonth) {
+  if (thisMonth === targetMonth && thisYear === targetYear) {
     return new Date().getDate().toString();
   } else return null;
 };
-// ADD for Year aswell!!!!
