@@ -17,30 +17,36 @@ export const getYear = (date) => +date.getFullYear();
 
 export const getMonth = (date) => {
   const numberMonth = date.getMonth();
-
   return Months[numberMonth];
 };
+// Maybe see if JS dates can get month name
 
 export const getDatesArray = (date) => {
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-  const firstDayOfMonthWeekDayNumber = firstDayOfMonth.getDay() - 1;
+  const firstDayMonthObject = new Date(date.getFullYear(), date.getMonth(), 1);
 
-  const numberofDaysInMonth = GetNumberOfDaysInMonth(firstDayOfMonth);
+  // WeekDayIndex goes from Monday === 0 to Sunday === 6
+  let weekDayIndex;
+  if (firstDayMonthObject.getDay() === 0) {
+    weekDayIndex = 6;
+  } else {
+    weekDayIndex = firstDayMonthObject.getDay() - 1;
+  }
 
-  const monthArray = CreateCountingArray(numberofDaysInMonth);
+  const numberOfDaysInThisMonth = GetNumDaysInThisMonth(firstDayMonthObject);
 
-  const emptyArray = CreateEmpty42Array();
-  emptyArray.splice(
-    firstDayOfMonthWeekDayNumber,
-    numberofDaysInMonth,
-    ...monthArray
+  const monthCountArray = CreatemonthCountArray(numberOfDaysInThisMonth);
+
+  const calendarArray = CreateEmpty42Array();
+  calendarArray.splice(
+    weekDayIndex,
+    numberOfDaysInThisMonth,
+    ...monthCountArray
   );
-  const NewArray = emptyArray;
 
-  return NewArray;
+  return calendarArray;
 };
 
-const GetNumberOfDaysInMonth = (anyDateInMonth) => {
+const GetNumDaysInThisMonth = (anyDateInMonth) => {
   return new Date(
     anyDateInMonth.getFullYear(),
     anyDateInMonth.getMonth() + 1,
@@ -48,13 +54,14 @@ const GetNumberOfDaysInMonth = (anyDateInMonth) => {
   ).getDate();
 };
 
-const CreateCountingArray = (number) => {
+const CreatemonthCountArray = (number) => {
   let a = [];
   for (let i = 1; i <= number; i++) {
     const numberString = i.toString();
     a.push(numberString);
   }
   return a;
+  // a is ['1', '2', '3'... to 'N'], Where N is the number of days in that month
 };
 
 const CreateEmpty42Array = () => {
