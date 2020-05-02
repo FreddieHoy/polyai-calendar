@@ -15,7 +15,7 @@ const DayContainer = styled.div`
   width: 50px;
   height: 50px;
   border: 1px solid black;
-  background-color: ${(props) => (props.highlight ? 'yellow' : 'none')};
+  background-color: ${(props) => (props.highlight ? '#CEECFF' : 'none')};
 `;
 
 const Dates = ({ array, today }) => {
