@@ -8,11 +8,11 @@ export const getDatesArray = (date) => {
 
   const weekDayIndex = firstDayMonthObject.getDay();
 
-  const numberOfDaysInThisMonth = GetNumDaysInThisMonth(firstDayMonthObject);
+  const numberOfDaysInThisMonth = getNumDaysInThisMonth(firstDayMonthObject);
 
-  const monthCountArray = CreatemonthCountArray(numberOfDaysInThisMonth);
+  const monthCountArray = createMonthCountArray(numberOfDaysInThisMonth);
 
-  const calendarArray = CreateEmpty42Array();
+  const calendarArray = createEmpty42Array();
   calendarArray.splice(
     weekDayIndex,
     numberOfDaysInThisMonth,
@@ -22,7 +22,7 @@ export const getDatesArray = (date) => {
   return calendarArray;
 };
 
-const GetNumDaysInThisMonth = (anyDateInMonth) => {
+const getNumDaysInThisMonth = (anyDateInMonth) => {
   return new Date(
     anyDateInMonth.getFullYear(),
     anyDateInMonth.getMonth() + 1,
@@ -30,7 +30,7 @@ const GetNumDaysInThisMonth = (anyDateInMonth) => {
   ).getDate();
 };
 
-const CreatemonthCountArray = (number) => {
+const createMonthCountArray = (number) => {
   let a = [];
 
   for (let i = 1; i <= number; i++) {
@@ -42,7 +42,7 @@ const CreatemonthCountArray = (number) => {
   // a is ['1', '2', '3'... to 'number']
 };
 
-const CreateEmpty42Array = () => {
+const createEmpty42Array = () => {
   let a = [];
 
   for (let i = 0; i < 42; i++) {
