@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeekDays renders all components correctly 1`] = `
+<styled.div>
+  <styled.div
+    key="Su"
+  >
+    <styled.p>
+      Su
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="Mo"
+  >
+    <styled.p>
+      Mo
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="Tu"
+  >
+    <styled.p>
+      Tu
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="We"
+  >
+    <styled.p>
+      We
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="Th"
+  >
+    <styled.p>
+      Th
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="Fr"
+  >
+    <styled.p>
+      Fr
+    </styled.p>
+  </styled.div>
+  <styled.div
+    key="Sa"
+  >
+    <styled.p>
+      Sa
+    </styled.p>
+  </styled.div>
+</styled.div>
+`;

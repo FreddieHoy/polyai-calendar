@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthYear renders all components correctly when given the correct props 1`] = `
+<styled.div>
+  <styled.p
+    id=""
+    onClick={[Function]}
+  >
+    &lt;
+  </styled.p>
+  <styled.p>
+    January 2020
+  </styled.p>
+  <styled.p
+    id="plus"
+    onClick={[Function]}
+  >
+    &gt;
+  </styled.p>
+</styled.div>
+`;
