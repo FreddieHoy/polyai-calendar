@@ -24,13 +24,8 @@ export const getMonth = (date) => {
 export const getDatesArray = (date) => {
   const firstDayMonthObject = new Date(date.getFullYear(), date.getMonth(), 1);
 
-  // WeekDayIndex goes from Monday === 0 to Sunday === 6
-  let weekDayIndex;
-  if (firstDayMonthObject.getDay() === 0) {
-    weekDayIndex = 6;
-  } else {
-    weekDayIndex = firstDayMonthObject.getDay() - 1;
-  }
+  // WeekDayIndex goes from Sunday === 0 to Saturday === 6
+  const weekDayIndex = firstDayMonthObject.getDay();
 
   const numberOfDaysInThisMonth = GetNumDaysInThisMonth(firstDayMonthObject);
 

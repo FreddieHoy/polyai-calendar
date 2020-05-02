@@ -2,7 +2,7 @@ import React from 'react';
 import { CalText } from 'config/FontStyles';
 import styled from 'styled-components';
 
-const DayNames = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+const DayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
 const Container = styled.div`
   display: flex;
