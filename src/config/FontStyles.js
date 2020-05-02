@@ -17,7 +17,7 @@ export const HeadingOne = styled.h1`
   font-family: 'Roboto', sans-serif;
 `;
 
-export const CalText = styled.p`
+export const CalendarText = styled.p`
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   margin: 0;

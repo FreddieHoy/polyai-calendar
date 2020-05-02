@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalText } from 'config/FontStyles';
+import { CalendarText } from 'config/FontStyles';
 import styled from 'styled-components';
 
 const DayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -22,7 +22,7 @@ const WeekDays = () => (
   <Container>
     {DayNames.map((day) => (
       <DayContainer key={day}>
-        <CalText>{day}</CalText>
+        <CalendarText>{day}</CalendarText>
       </DayContainer>
     ))}
   </Container>

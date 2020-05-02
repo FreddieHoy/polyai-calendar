@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CalText } from 'config/FontStyles';
+import { CalendarText } from 'config/FontStyles';
 
 const Container = styled.div`
   display: flex;
@@ -37,12 +37,12 @@ const Dates = ({ array, today }) => {
         <div key={counter++}>
           {today !== day && (
             <DayContainer>
-              <CalText>{day}</CalText>
+              <CalendarText>{day}</CalendarText>
             </DayContainer>
           )}
           {today === day && (
             <DayContainerHighlighted>
-              <CalText>{day}</CalText>
+              <CalendarText>{day}</CalendarText>
             </DayContainerHighlighted>
           )}
         </div>
