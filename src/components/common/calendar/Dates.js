@@ -27,23 +27,28 @@ const DayContainerHighlighted = styled.div`
   background-color: yellow;
 `;
 
-const Dates = ({ array, today }) => (
-  <Container>
-    {array.map((day) => (
-      <div>
-        {today !== day && (
-          <DayContainer key={day}>
-            <CalText>{day}</CalText>
-          </DayContainer>
-        )}
-        {today === day && (
-          <DayContainerHighlighted>
-            <CalText>{day}</CalText>
-          </DayContainerHighlighted>
-        )}
-      </div>
-    ))}
-  </Container>
-);
+// Repeating Code
+
+const Dates = ({ array, today }) => {
+  let counter = 0;
+  return (
+    <Container>
+      {array.map((day) => (
+        <div key={counter++}>
+          {today !== day && (
+            <DayContainer>
+              <CalText>{day}</CalText>
+            </DayContainer>
+          )}
+          {today === day && (
+            <DayContainerHighlighted>
+              <CalText>{day}</CalText>
+            </DayContainerHighlighted>
+          )}
+        </div>
+      ))}
+    </Container>
+  );
+};
 
 export default Dates;
