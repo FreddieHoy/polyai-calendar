@@ -1,30 +1,11 @@
-const Months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
+export const getYear = (date) => date.getFullYear();
 
-export const getYear = (date) => +date.getFullYear();
-
-export const getMonth = (date) => {
-  const numberMonth = date.getMonth();
-  return Months[numberMonth];
-};
-// Maybe see if JS dates can get month name
+export const getMonth = (date) =>
+  date.toLocaleString('default', { month: 'long' });
 
 export const getDatesArray = (date) => {
   const firstDayMonthObject = new Date(date.getFullYear(), date.getMonth(), 1);
 
-  // WeekDayIndex goes from Sunday === 0 to Saturday === 6
   const weekDayIndex = firstDayMonthObject.getDay();
 
   const numberOfDaysInThisMonth = GetNumDaysInThisMonth(firstDayMonthObject);
@@ -56,7 +37,7 @@ const CreatemonthCountArray = (number) => {
     a.push(numberString);
   }
   return a;
-  // a is ['1', '2', '3'... to 'N'], Where N is the number of days in that month
+  // a is ['1', '2', '3'... to 'N'], Where N is the number of days in that month.
 };
 
 const CreateEmpty42Array = () => {
@@ -75,3 +56,4 @@ export const getHighlightedDay = (date) => {
     return new Date().getDate().toString();
   } else return null;
 };
+// ADD for Year aswell!!!!
