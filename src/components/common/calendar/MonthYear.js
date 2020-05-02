@@ -8,18 +8,22 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Arrows = styled.div`
+const Arrows = styled.p`
   margin: 0 10px 3px 10px;
   :hover {
     cursor: pointer;
   }
 `;
 
-const MonthYear = ({ year, month, addMonth, minusMonth }) => (
+const MonthYear = ({ year, month, switchMonth }) => (
   <Container>
-    <Arrows onClick={minusMonth}>{'<'}</Arrows>
-    <CalText>{`${month} ${year}`}</CalText>
-    <Arrows onClick={addMonth}>{'>'}</Arrows>
+    <Arrows onClick={switchMonth} id={''}>
+      {'<'}
+    </Arrows>
+    <CalendarText>{`${month} ${year}`}</CalendarText>
+    <Arrows onClick={switchMonth} id={'+'}>
+      {'>'}
+    </Arrows>
   </Container>
 );
 

@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import WeekDays from './WeekDays';
 import Dates from './Dates';
 import MonthYear from './MonthYear';
-import { getYear, getMonth, getDatesArray, getHighlightedDay } from './Helper';
+import {
+  getYear,
+  getMonthName,
+  getDatesArray,
+  getHighlightedDay
+} from './Helper';
 
 const Container = styled.div`
   border: 1px solid black;
@@ -20,37 +25,27 @@ class Calendar extends Component {
     datesArray: []
   };
 
-  addMonth = () => {
-    const nextMonth = new Date(
-      this.state.targetDate.setMonth(this.state.targetDate.getMonth() + 1)
-    );
-    this.setState({
-      targetDate: nextMonth,
-      year: getYear(this.state.targetDate),
-      month: getMonth(this.state.targetDate),
-      datesArray: getDatesArray(this.state.targetDate),
-      today: getHighlightedDay(this.state.targetDate)
-    });
-  };
+  switchMonth = (e) => {
+    const nextMonthIndexNumber =
+      this.state.targetDate.getMonth() + (e.target.id ? 1 : -1);
 
-  minusMonth = () => {
-    const nextMonth = new Date(
-      this.state.targetDate.setMonth(this.state.targetDate.getMonth() - 1)
+    const adjacentMonth = new Date(
+      this.state.targetDate.setMonth(nextMonthIndexNumber)
     );
+
     this.setState({
-      targetDate: nextMonth,
+      targetDate: adjacentMonth,
       year: getYear(this.state.targetDate),
-      month: getMonth(this.state.targetDate),
+      month: getMonthName(this.state.targetDate),
       datesArray: getDatesArray(this.state.targetDate),
       today: getHighlightedDay(this.state.targetDate)
     });
   };
-  // Change month??
 
   componentDidMount() {
     this.setState({
       year: getYear(this.state.targetDate),
-      month: getMonth(this.state.targetDate),
+      month: getMonthName(this.state.targetDate),
       datesArray: getDatesArray(this.state.targetDate),
       today: getHighlightedDay(this.state.targetDate)
     });
@@ -62,8 +57,7 @@ class Calendar extends Component {
         <MonthYear
           month={this.state.month}
           year={this.state.year}
-          addMonth={this.addMonth}
-          minusMonth={this.minusMonth}
+          switchMonth={this.switchMonth}
         />
         <WeekDays />
         <Dates array={this.state.datesArray} today={this.state.today} />
