@@ -22,33 +22,24 @@ export const getDatesArray = (date) => {
   return calendarArray;
 };
 
-export const getNumDaysInThisMonth = (anyDateInMonth) => {
-  return new Date(
-    anyDateInMonth.getFullYear(),
-    anyDateInMonth.getMonth() + 1,
-    0
-  ).getDate();
-};
+export const getNumDaysInThisMonth = (date) =>
+  new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
 export const createMonthCountArray = (number) => {
   let a = [];
-
   for (let i = 1; i <= number; i++) {
     const numberString = i.toString();
     a.push(numberString);
   }
-
   return a;
   // a is ['1', '2', '3'... to 'number']
 };
 
 export const createEmpty42Array = () => {
   let a = [];
-
   for (let i = 0; i < 42; i++) {
     a.push('');
   }
-
   return a;
 };
 
