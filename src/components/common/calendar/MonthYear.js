@@ -21,7 +21,7 @@ const MonthYear = ({ year, month, switchMonth }) => (
       {'<'}
     </Arrows>
     <CalendarText>{`${month} ${year}`}</CalendarText>
-    <Arrows onClick={switchMonth} id={'+'}>
+    <Arrows onClick={switchMonth} id={'plus'}>
       {'>'}
     </Arrows>
   </Container>
