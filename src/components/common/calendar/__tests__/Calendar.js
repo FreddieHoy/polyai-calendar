@@ -4,12 +4,6 @@ import React from 'react';
 import Calendar from '../Calendar';
 
 describe('Calendar', () => {
-  it('renders all components correctly', () => {
-    const wrapper = shallow(<Calendar />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('adds one month to target date when switchMonth is called with e.target.id as plus', () => {
     const wrapper = shallow(<Calendar />);
     wrapper.setState({ targetDate: new Date(2020, 0, 1) });
