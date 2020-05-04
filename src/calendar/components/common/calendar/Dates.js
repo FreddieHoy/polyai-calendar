@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CalendarText } from 'config/FontStyles';
+import { CalendarText } from 'calendar/config/FontStyles';
 
 const Container = styled.div`
   display: flex;

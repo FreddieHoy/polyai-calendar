@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { NavItem, HeadingOne } from 'config/FontStyles';
+import { NavItem, HeadingOne } from 'calendar/config/FontStyles';
 import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`

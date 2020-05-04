@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Calendar from 'components/common/calendar/Calendar';
-import { Paragraph } from 'config/FontStyles';
+import Calendar from 'calendar/components/common/calendar/Calendar';
+import { Paragraph } from 'calendar/config/FontStyles';
 
 const Container = styled.div``;
 

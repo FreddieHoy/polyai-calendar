@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalendarText } from 'config/FontStyles';
+import { CalendarText } from 'calendar/config/FontStyles';
 import styled from 'styled-components';
 
 const DayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
