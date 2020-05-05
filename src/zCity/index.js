@@ -21,19 +21,19 @@ for (let i = 1; i <= M; i++) {
   let locationX = 0;
   while (locationX < 1 || locationX > N) {
     locationX = readlineSync.questionInt(
-      `What is the X location (1-${N}) of pizzeria ${i}? `
+      `X location (1-${N}) of pizzeria ${i}? `
     );
   }
 
   let locationY = 0;
   while (locationY < 1 || locationY > N) {
     locationY = readlineSync.questionInt(
-      `What is the Y location (1-${N}) of pizzeria ${i}? `
+      `Y location (1-${N}) of pizzeria ${i}? `
     );
   }
 
   const radius = readlineSync.questionInt(
-    `What is the distance, in blocks, pizzeria ${i} can deliver to?`
+    `Radius, in blocks, pizzeria ${i} can deliver to?`
   );
   const indexX = locationX - 1;
   const indexY = locationY - 1;
