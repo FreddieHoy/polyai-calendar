@@ -48,7 +48,3 @@ const highestDevliveries = findMostPizzaOptions(city);
 console.log(
   `The block with the most amount of delivery options can choose from ${highestDevliveries} different pizzerias.`
 );
-
-// add constraints to inputs
-
-// complexity using Big O Notation.

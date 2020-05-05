@@ -90,6 +90,3 @@ describe('getHighlightedDay', () => {
     expect(result).toEqual(null);
   });
 });
-
-// Try to avoid dates that will expire.
-// Use moment to test highlighted day.
