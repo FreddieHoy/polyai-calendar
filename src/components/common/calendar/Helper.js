@@ -22,6 +22,8 @@ export const getDatesArray = (date) => {
   return calendarArray;
 };
 
+export const createEmpty42Array = () => new Array(42).fill('');
+
 export const getNumDaysInThisMonth = (date) =>
   new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
@@ -33,14 +35,6 @@ export const createMonthCountArray = (number) => {
   }
   return a;
   // a is ['1', '2', '3'... to 'number']
-};
-
-export const createEmpty42Array = () => {
-  let a = [];
-  for (let i = 0; i < 42; i++) {
-    a.push('');
-  }
-  return a;
 };
 
 export const getHighlightedDay = (date) => {
