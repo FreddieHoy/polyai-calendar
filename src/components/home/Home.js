@@ -7,7 +7,7 @@ const Container = styled.div``;
 
 const Home = () => (
   <Container>
-    <Paragraph>This is my home page and there is a calendar here</Paragraph>
+    <Paragraph>This is my home page and there is a Calendar here</Paragraph>
     <Calendar />
   </Container>
 );

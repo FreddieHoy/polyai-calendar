@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import WeekDays from './WeekDays';
 import Dates from './Dates';
@@ -16,54 +16,39 @@ const Container = styled.div`
   text-align: center;
 `;
 
-class Calendar extends Component {
-  state = {
-    targetDate: new Date(),
-    month: '',
-    year: '',
-    today: '',
-    datesArray: []
+const Calendar = () => {
+  const [targetDate, setTargetDate] = useState(new Date());
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+  const [today, setToday] = useState('');
+  const [datesArray, setDatesArray] = useState([]);
+
+  const updateVariables = (targetDate) => {
+    setYear(getYear(targetDate));
+    setMonth(getMonthName(targetDate));
+    setDatesArray(getDatesArray(targetDate));
+    setToday(getHighlightedDay(targetDate));
   };
 
-  switchMonth = (e) => {
-    const nextMonthIndexNumber =
-      this.state.targetDate.getMonth() + (e.target.id ? 1 : -1);
+  const switchMonth = (e) => {
+    const nextMonthIndexNumber = targetDate.getMonth() + (e.target.id ? 1 : -1);
+    const adjacentMonth = new Date(targetDate.setMonth(nextMonthIndexNumber));
 
-    const adjacentMonth = new Date(
-      this.state.targetDate.setMonth(nextMonthIndexNumber)
-    );
-
-    this.setState({
-      targetDate: adjacentMonth,
-      year: getYear(this.state.targetDate),
-      month: getMonthName(this.state.targetDate),
-      datesArray: getDatesArray(this.state.targetDate),
-      today: getHighlightedDay(this.state.targetDate)
-    });
+    setTargetDate(adjacentMonth);
+    updateVariables(targetDate);
   };
 
-  componentDidMount() {
-    this.setState({
-      year: getYear(this.state.targetDate),
-      month: getMonthName(this.state.targetDate),
-      datesArray: getDatesArray(this.state.targetDate),
-      today: getHighlightedDay(this.state.targetDate)
-    });
-  }
+  useEffect(() => {
+    updateVariables(targetDate);
+  }, [targetDate]);
 
-  render() {
-    return (
-      <Container>
-        <MonthYear
-          month={this.state.month}
-          year={this.state.year}
-          switchMonth={this.switchMonth}
-        />
-        <WeekDays />
-        <Dates array={this.state.datesArray} today={this.state.today} />
-      </Container>
-    );
-  }
-}
+  return (
+    <Container>
+      <MonthYear month={month} year={year} switchMonth={switchMonth} />
+      <WeekDays />
+      <Dates array={datesArray} today={today} />
+    </Container>
+  );
+};
 
 export default Calendar;
