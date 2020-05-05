@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Calendar from 'components/common/calendar/Calendar';
+import CalendarOld from 'components/common/calendar/CalendarOld';
 import { Paragraph } from 'config/FontStyles';
 
 const Container = styled.div``;
@@ -8,9 +8,9 @@ const Container = styled.div``;
 const About = () => (
   <Container>
     <Paragraph>
-      This is my about page and there is also a calendar here.
+      This is my about page and this calendar uses a classical React component.
     </Paragraph>
-    <Calendar />
+    <CalendarOld />
   </Container>
 );
 

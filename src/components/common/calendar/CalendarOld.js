@@ -16,7 +16,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-class Calendar extends Component {
+class CalendarOld extends Component {
   state = {
     targetDate: new Date(),
     month: '',
@@ -66,4 +66,4 @@ class Calendar extends Component {
   }
 }
 
-export default Calendar;
+export default CalendarOld;
