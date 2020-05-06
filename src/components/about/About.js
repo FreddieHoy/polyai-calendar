@@ -1,17 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import CalendarOld from 'components/common/calendar/CalendarOld';
-import { Paragraph } from 'config/FontStyles';
-
-const Container = styled.div``;
+import CalendarState from 'components/common/calendar/CalendarState';
+import { HeadingOne, Paragraph } from 'config/FontStyles';
 
 const About = () => (
-  <Container>
+  <div>
+    <HeadingOne>State Calendar</HeadingOne>
     <Paragraph>
-      This is my about page and this calendar uses a classical React component.
+      This calendar is constructed and controlled using classical react
+      component. See Home page for hooks controlled calendar.
     </Paragraph>
-    <CalendarOld />
-  </Container>
+    <CalendarState />
+  </div>
 );
 
 export default About;

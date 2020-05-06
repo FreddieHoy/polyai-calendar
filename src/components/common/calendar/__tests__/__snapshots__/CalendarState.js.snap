@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CalendarOld renders the correct components 1`] = `
+exports[`CalendarState renders the correct components 1`] = `
 <styled.div>
   <MonthYear
     month="May"

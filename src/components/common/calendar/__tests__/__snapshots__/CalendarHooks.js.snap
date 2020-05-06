@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarHooks renders the correct components 1`] = `
+<styled.div>
+  <MonthYear
+    month=""
+    switchMonth={[Function]}
+    year=""
+  />
+  <WeekDays />
+  <Dates
+    array={Array []}
+    today=""
+  />
+</styled.div>
+`;

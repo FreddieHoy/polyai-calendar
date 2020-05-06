@@ -1,17 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import Calendar from 'components/common/calendar/Calendar';
-import { Paragraph } from 'config/FontStyles';
-
-const Container = styled.div``;
+import CalendarHooks from 'components/common/calendar/CalendarHooks';
+import { HeadingOne, Paragraph } from 'config/FontStyles';
 
 const Home = () => (
-  <Container>
+  <div>
+    <HeadingOne>Hooks Calendar</HeadingOne>
     <Paragraph>
-      This is my home page and this Calendar uses React Hooks
+      This calendar is constructed using React hooks. See About page for state
+      controlled calendar.
     </Paragraph>
-    <Calendar />
-  </Container>
+    <CalendarHooks />
+  </div>
 );
 
 export default Home;

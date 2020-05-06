@@ -16,7 +16,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Calendar = () => {
+const CalendarHooks = () => {
   const [targetDate, setTargetDate] = useState(new Date());
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
@@ -51,4 +51,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarHooks;

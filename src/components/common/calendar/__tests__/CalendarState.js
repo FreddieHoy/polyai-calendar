@@ -1,17 +1,17 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import CalendarOld from '../CalendarOld';
+import CalendarState from '../CalendarState';
 
-describe('CalendarOld', () => {
+describe('CalendarState', () => {
   it('renders the correct components', () => {
-    const wrapper = shallow(<CalendarOld />);
+    const wrapper = shallow(<CalendarState />);
     wrapper.setState({ today: null });
     expect(wrapper).toMatchSnapshot();
   });
 
   it('adds one month to target date when switchMonth is called with e.target.id as plus', () => {
-    const wrapper = shallow(<CalendarOld />);
+    const wrapper = shallow(<CalendarState />);
     const e = {
       target: {
         id: 'plus'
@@ -25,7 +25,7 @@ describe('CalendarOld', () => {
   });
 
   it('minus one month to target date when switchMonth is called with e.target.id as plus', () => {
-    const wrapper = shallow(<CalendarOld />);
+    const wrapper = shallow(<CalendarState />);
     const e = {
       target: {
         id: ''

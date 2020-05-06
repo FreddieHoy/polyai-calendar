@@ -1,12 +1,11 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import CalendarOld from '../CalendarOld';
+import CalendarHooks from '../CalendarHooks';
 
-describe('CalendarOld', () => {
+describe('CalendarHooks', () => {
   it('renders the correct components', () => {
-    const wrapper = shallow(<CalendarOld />);
-    wrapper.setState({ today: null });
+    const wrapper = shallow(<CalendarHooks />);
     expect(wrapper).toMatchSnapshot();
   });
 });
