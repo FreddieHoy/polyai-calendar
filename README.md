@@ -98,7 +98,7 @@ The JS `Date object` is crucial as it allows you to get the day(index), month(in
 
 At first the calendar was made using by taking the current day using `new Date()` and then following the step mentioned in _Creating the Calendar grid._ (above).
 
-So in oder to add the functionality of going forward a month, all that was needed was to create a `targetDate` (See `calendar/Calendar.js` hook). This `targetDate` is passed into the `getDatesArray()` function to display the correct array.
+So in oder to add the functionality of going forward a month, all that was needed was to create a `targetDate` (See `calendar/CalendarHooks.js` hook). This `targetDate` is passed into the `getDatesArray()` function to display the correct array.
 
 Therefore to move between months the `switchMonths()` onClick function was created which would add or minus a month to the `targetMonth` based on which arrow you pressed in the DOM.
 
@@ -132,24 +132,26 @@ export const getHighlightedDay = (date) => {
 
 `highlightedDay` then gets passed into the `calendar/dates.js` component and using styled components highlights the current day.
 
-## The `CalendarOld.js` component.
+## The `CalendarHooks` and `CalendarState` components.
 
-Originally the Calendar component was made using a classical react component. However to demonstrate ability the Calendar component was remade using hooks.
+Originally the Calendar component was made using a classical react component using state. However to demonstrate ability, the Calendar component was remade again using hooks.
 
-However both components are used.
+Both components are used.
 
-- The Home page uses the functional (hooks) component.(`calendar/Calendar.js`)
-- The About page uses the classical component.(`calendar/CalendarOld.js`)
+- The Home page uses the functional (hooks) component.(`calendar/CalendarHooks.js`)
+- The About page uses the classical component.(`calendar/CalendarState.js`)
+
+This was done to show case ability using both.
 
 ## Testing.
 
 ### Changing Dates.
 
-All of the calendar components have been tested using snapshots. However one of the issues with testing date in jest is that the current date changes. Therefore the test can 'expire'. To over come this for example in the `Calendar.js` test I have set the `today` variable myself so that it can not 'expire'.
+All of the calendar components have been tested using snapshots. However one of the issues with testing date in jest is that the current date changes. Therefore the test can 'expire'. To over come this for example in the `CalendarState.js` test I have set the `today` variable myself so that it can not 'expire'.
 
 ```
 it('renders the correct components', () => {
-    const wrapper = shallow(<CalendarOld />);
+    const wrapper = shallow(<CalendarState />);
     wrapper.setState({ today: null });
     expect(wrapper).toMatchSnapshot();
   });
@@ -163,7 +165,7 @@ I believe that most comprehensive testing could be done using the JS package `mo
 
 Although I have experience using react hooks, my experience of testing with them is very limited. I was unsuccessful in creating useful tests for the switchMonth function. I understand the effectiveness of hooks and look to learn more about testing them correctly in the future.
 
-However a basic snapshot test was done and I was able to successfully test the switchMonth function in `CalendarOld.js` the classical component.
+However a basic snapshot test was done and I was able to successfully test the switchMonth function in `CalendarState.js` the classical component.
 
 # Question Two
 
