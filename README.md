@@ -35,7 +35,7 @@ This project includes both Question 1 AND Question 2 from the PoylAI code test.
 
 Some automated tests have been written for both questions 1 & 2.
 
-All of these test can be run with the command:
+All of these tests can be run with the command:
 
 > npm run test
 
@@ -44,7 +44,7 @@ All of these test can be run with the command:
 ## Brief
 
 - Create a webpage that displays a calendar in grid form.
-- The calendar must be similar to the one that is outputted from the UNIX cal command.
+- The calendar must be similar to the one that is outputted from the UNIX `cal` command.
 - Todays date must be highlighted.
 
 ## Technologies used
@@ -71,7 +71,7 @@ The first 2 components were easy enough to create. The current month and year is
 
 ## Creating the Calendar grid.
 
-The most challenging aspect would be to form the date grid. It was noticed that this format could easily be made by looping over an array of length 42 with the correct days of the month in the right place. The correct Array just had to be made. See `calendar/helper.js`.
+The most challenging aspect would be to construct the date grid. It was noticed that this format could easily be made by looping over an array of length 42 with the correct days of the month in the right place. The correct Array just had to be made. See `calendar/helper.js`.
 
 1. Firstly an array of 42 empty strings is created. (A)
 2. An array of 1, 2, 3.. to the number of days in the month is created. (B)
@@ -231,23 +231,23 @@ The 3 stages mentioned in _Question 1_ are well represented in the 3 functions i
 
 It seems that this coded solution is quite complex.
 
-In order to successfully obtain a result you have to loop through the entire data set once just at Stages 1 and 3. Both of these steps complexity would be described as O(N^2) in Big O notation. Meaning that that the number of steps is directly proportional to the size of the input. For example if you have a city width of N = 2 there are 4 steps to create a 2 by 2 grid, and then when N = 5 there are 25 steps etc.
+In order to successfully obtain a result you have to loop through the entire data set once just at Stages 1 and 3. Both of these steps complexity would be described as O(N^2) in Big O notation. Meaning that the number of steps is directly proportional to the size of the input. For example if you have a city width of N = 2 there are 4 steps to create a 2 by 2 grid, and then when N = 5 there are 25 steps etc.
 
-Stage 2 is also similar in relation to N as the city get bigger the number of actions does. However you have to do stage 2 every time a new pizzeria is added (M times). This stage could be written in big O notation as O(N^M).
+Stage 2 is also similar in relation to N as the city get bigger the number of actions does. However stage 2 run every time a new pizzeria is added (M times). This stage could be written in big O notation as O(N^M).
 
-I guess in total the solution complexity could be described as is O(N^(M+2)). (N = city width, M = number of pizzerias)
+In total the solution complexity could be described as is O(N^(M+2)). (N = city width, M = number of pizzerias)
 
-With N and M <= 1000 it is not the worst solution. If both N & M were 1000 it might be getting close however if they were both 100,000 the improved solutions would be needed to reduce computational cost.
+With N and M <= 1000, it is not the worst solution. If both N & M were 1000 it might be getting close to causing some computing time problems, however if they were both 100,000 an improved solutions would be needed to reduce computational cost.
 
-#### Improvement.
+#### Improvements.
 
 There are defiantly improvements to be made.
 
-For stage 2 we are given the coordinates of the pizzerias and the radius. Currently it searches the entire city starting from (0, 0) to (N, N). It compares each block to the pizzerias location and radius in order to add 1 or not to the block. Instead the comparison could start at the pizzerias location (x, y) and work outwardly adding 1 to all blocks within the radius until the radius has been reached. This way if the city was 1000 by 1000 and the pizzeria only had a radius of 5 then it would save searching 939 blocks just for adding one pizzeria.
+For stage 2 we are given the coordinates of the pizzerias and the radius. Currently it searches the entire city starting from (0, 0) to (N, N) in order to place place one pizzeria. It compares each block to the pizzerias location and radius in order to add 1 or not to the block. Instead the comparison could start at the pizzerias location (x, y) and work outwardly adding 1 to all blocks within the radius until the radius has been reached. This way if the city was 1000 by 1000 and the pizzeria only had a radius of 5 then it would save searching 999939 blocks just for adding one pizzeria.
 
 A similar approach could be made for stage 3, searching for the highest number in the grid. The highest number has to be within range of a pizzeria. Therefore by coding a solution that only searches blocks within the radius of a pizzeria a lot of search steps can be saved.
 
-Also in stage 3 the maximum deliveries can not be more then M, the number of pizzerias, so if a value of M is found then the search can stop.
+A simple additions for stage 3 would be noticing that the maximum deliveries can not be more then M, the number of pizzerias, so if a value of M is found then the search can stop.
 
 It seems possible that stage 1 and 2 could be combined to set the city grid up in one loop over each block. This might be done by making comparisons to the pizzeria locations as the 2D array is being constructed. However these extra comparisons might lead to the same or even extra steps as each block is compared to an array of pizzeria locations.
 
